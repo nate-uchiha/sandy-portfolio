@@ -1,59 +1,69 @@
 export default function Contact() {
   return (
-    <section
-      id="contact"
-      className="relative overflow-hidden bg-[#0a0a0a] px-6 py-32 text-white lg:px-8 lg:py-44"
-    >
-      {/* Background glow */}
-      <div className="pointer-events-none absolute left-1/2 top-1/2 h-96 w-96 -translate-x-1/2 -translate-y-1/2 rounded-full bg-amber-500/[0.06] blur-[140px]" />
+    <section id="contact" className="section contact">
+      <div className="section__inner">
 
-      <div className="relative mx-auto max-w-7xl">
-        <div className="border-t border-white/10 pt-10">
-          <p className="text-xs font-medium uppercase tracking-[0.3em] text-amber-400">
-            Contact
-          </p>
+        <div className="grid gap-12 lg:grid-cols-[1.2fr_0.8fr]">
 
-          <div className="mt-14 grid gap-10 border-t border-white/10 pt-10 sm:grid-cols-3">
-            <div>
-              <p className="text-[10px] uppercase tracking-[0.25em] text-white/30">
-                Email
-              </p>
+          <div>
+            <p className="text-[10px] font-medium uppercase tracking-[0.3em] text-[#f7c948]">
+              Contact
+            </p>
 
-              <a
-                href="mailto:sandy98818@gmail.com"
-                className="mt-3 block text-sm text-white/70 transition hover:text-amber-400"
-              >
-                sandy98818@gmail.com
-              </a>
-            </div>
-
-            <div>
-              <p className="text-[10px] uppercase tracking-[0.25em] text-white/30">
-                Phone
-              </p>
-
-              <a
-                href="tel:+919881848154"
-                className="mt-3 block text-sm text-white/70 transition hover:text-amber-400"
-              >
-                +91 98818 48154
-              </a>
-            </div>
-
-            <div>
-              <p className="text-[10px] uppercase tracking-[0.25em] text-white/30">
-                LinkedIn
-              </p>
-
-              <a
-                href="https://www.linkedin.com/in/sandesh-tembhurkar-48588631b?utm_source=share_via&utm_content=profile&utm_medium=member_ios"
-                className="mt-3 block text-sm text-white/70 transition hover:text-amber-400"
-              >
-                LinkedIn Profile →
-              </a>
-            </div>
+            <h2 className="contact__heading mt-8">
+              LET&apos;S
+              <br />
+              TALK.
+            </h2>
           </div>
+
+          <div className="self-end">
+
+            <a
+              href="mailto:sandy98818@gmail.com"
+              className="contact__link"
+            >
+              <span className="contact__label">
+                Email
+              </span>
+
+              <span className="contact__value">
+                sandy98818@gmail.com
+              </span>
+            </a>
+
+            <a
+              href="tel:+010881848154"
+              className="contact__link"
+            >
+              <span className="contact__label">
+                Phone
+              </span>
+
+              <span className="contact__value">
+                +91 98818 48154
+              </span>
+            </a>
+
+            <a
+              href="LINKEDIN_URL_HERE"
+              target="_blank"
+              rel="noreferrer"
+              className="contact__link"
+            >
+              <span className="contact__label">
+                LinkedIn
+              </span>
+
+              <span className="contact__value">
+                LinkedIn Profile ↗
+              </span>
+            </a>
+
+          </div>
+
         </div>
+
       </div>
     </section>
   );

@@ -1,70 +1,110 @@
+"use client";
+
+import { useState } from "react";
+
+const navItems = [
+  {
+    label: "About",
+    href: "#about",
+  },
+  {
+    label: "Expertise",
+    href: "#expertise",
+  },
+  {
+    label: "Projects",
+    href: "#projects",
+  },
+  {
+    label: "Gallery",
+    href: "#gallery",
+  },
+];
+
 export default function Navbar() {
+  const [menuOpen, setMenuOpen] = useState(false);
+
   return (
-    <header className="absolute left-0 right-0 top-0 z-50">
-      <nav className="mx-auto flex max-w-7xl items-center justify-between px-6 py-6 lg:px-8">
-        {/* Logo / Name */}
-        <a
-          href="#"
-          className="text-sm font-semibold uppercase tracking-[0.2em] text-white"
-        >
-          YOUR NAME
+    <header className="navbar">
+      <nav className="navbar__inner">
+        <a href="#top" className="navbar__logo">
+          SANDESH TEMBHURKAR
         </a>
 
-        {/* Desktop Navigation */}
-        <div className="hidden items-center gap-8 md:flex">
-          <a
-            href="#about"
-            className="text-sm text-white/55 transition hover:text-white"
-          >
-            About
-          </a>
+        <div className="navbar__links">
+          {navItems.map((item) => (
+            <a
+              key={item.href}
+              href={item.href}
+              className="navbar__link"
+            >
+              {item.label}
+            </a>
+          ))}
+        </div>
 
-          <a
-            href="#expertise"
-            className="text-sm text-white/55 transition hover:text-white"
-          >
-            Expertise
-          </a>
+        <a href="#contact" className="navbar__cta">
+          Let&apos;s Talk ↗
+        </a>
 
-          <a
-            href="#projects"
-            className="text-sm text-white/55 transition hover:text-white"
-          >
-            Projects
-          </a>
+        <button
+          type="button"
+          className="navbar__mobile-button"
+          aria-label={
+            menuOpen
+              ? "Close navigation"
+              : "Open navigation"
+          }
+          onClick={() => setMenuOpen(!menuOpen)}
+        >
+          {menuOpen ? "×" : "☰"}
+        </button>
+      </nav>
 
-          <a
-            href="#gallery"
-            className="text-sm text-white/55 transition hover:text-white"
-          >
-            Event Gallery
-          </a>
+      <div
+        className={`navbar__mobile-menu ${
+          menuOpen
+            ? "navbar__mobile-menu--visible"
+            : "navbar__mobile-menu--hidden"
+        }`}
+      >
+        <div>
+          <p className="mb-8 text-[9px] uppercase tracking-[0.3em] text-[#f7c948]">
+            Navigation
+          </p>
+
+          <div className="navbar__mobile-links">
+            {navItems.map((item, index) => (
+              <a
+                key={item.href}
+                href={item.href}
+                className="navbar__mobile-link"
+                onClick={() => setMenuOpen(false)}
+              >
+                <span>
+                  0{index + 1}
+                </span>
+
+                {item.label}
+              </a>
+            ))}
+          </div>
+        </div>
+
+        <div>
+          <p className="text-[9px] uppercase tracking-[0.25em] text-white/30">
+            Assistant Event Manager
+          </p>
 
           <a
             href="#contact"
-            className="text-sm text-white/55 transition hover:text-white"
+            className="mt-4 inline-flex text-sm text-[#f7c948]"
+            onClick={() => setMenuOpen(false)}
           >
-            Contact
+            Let&apos;s Talk ↗
           </a>
         </div>
-
-        {/* CTA */}
-        <a
-          href="#contact"
-          className="hidden rounded-full border border-white/20 px-5 py-2.5 text-xs font-medium uppercase tracking-widest text-white transition hover:border-amber-400 hover:text-amber-400 md:block"
-        >
-          Let's Talk
-        </a>
-
-        {/* Mobile menu placeholder */}
-        <button
-          type="button"
-          aria-label="Open menu"
-          className="text-white md:hidden"
-        >
-          ☰
-        </button>
-      </nav>
+      </div>
     </header>
   );
 }
